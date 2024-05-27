@@ -12,6 +12,8 @@
 | Vertices | ✓ |
 | Triangles | ✓ |
 | Material | / |
+| Vertices Color | ✓ |
+| UV 1-4 | ✓ |
 | Texture | ✓ |
 | Skeleton Rigging Skinning | ✓ |
 | BlendShape | ✓ |
