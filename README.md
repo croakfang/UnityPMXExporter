@@ -1,4 +1,3 @@
-### Export the PMX model in Unity, including runtime
 ![image](https://github.com/croakfang/UnityPMXExporter/assets/32562737/a9038ea3-cd05-42d7-912d-f311ea0e9a2a)
 
 # Features
