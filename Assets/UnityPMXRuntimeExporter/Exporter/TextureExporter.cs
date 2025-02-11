@@ -6,15 +6,9 @@ namespace UnityPMXExporter
 {
     public class TextureExporter
     {
-        static public Texture2D duplicateTexture(Texture2D source)
+        static public Texture2D duplicateTexture(Texture2D source, RenderTextureReadWrite colorSpace = RenderTextureReadWrite.Default)
         {
-            RenderTexture renderTex = RenderTexture.GetTemporary(
-                        source.width,
-                        source.height,
-                        0,
-                        RenderTextureFormat.Default,
-                        RenderTextureReadWrite.Linear);
-
+            RenderTexture renderTex = RenderTexture.GetTemporary(source.width, source.height, 0, RenderTextureFormat.Default, colorSpace);
             Graphics.Blit(source, renderTex);
             RenderTexture previous = RenderTexture.active;
             RenderTexture.active = renderTex;
@@ -26,9 +20,9 @@ namespace UnityPMXExporter
             return readableText;
         }
 
-        static public string[] ExportAllTexture(string path, GameObject gameobj)
+        static public string[] ExportAllTexture(string path, GameObject gameobj, RenderTextureReadWrite colorSpace = RenderTextureReadWrite.Default)
         {
-            string savePath =  $"{path}/Texture2D/";
+            string savePath = $"{path}/Texture2D/";
             List<string> textureNames = new List<string>();
             if (!Directory.Exists(savePath))
             {
@@ -52,7 +46,7 @@ namespace UnityPMXExporter
                             {
                                 string tex_name = mat_texture.name;
                                 string tex_path = savePath + tex_name + ".png";
-                                
+
                                 var dpath = "Texture2D/" + tex_name + ".png";
                                 if (!textureNames.Contains(dpath))
                                 {
@@ -61,7 +55,7 @@ namespace UnityPMXExporter
 
                                 if (!File.Exists(tex_path))
                                 {
-                                    mat_texture = duplicateTexture(mat_texture);
+                                    mat_texture = duplicateTexture(mat_texture,colorSpace);
                                     byte[] bytes = mat_texture.EncodeToPNG();
                                     File.WriteAllBytes(tex_path, bytes);
                                 }

@@ -1,15 +1,14 @@
 using UnityEngine;
 using UnityEditor;
 using System.IO;
-using Newtonsoft.Json.Linq;
 using UnityPMXExporter;
 using System.Diagnostics;
-using Codice.CM.Common.Serialization;
 
 
 public class EditorPMXExporter : ScriptableWizard
 {
     public string ExportPath = "model.pmx";
+    public RenderTextureReadWrite TextureColorSpace = RenderTextureReadWrite.Default;
 
     private void OnEnable()
     {
@@ -23,7 +22,7 @@ public class EditorPMXExporter : ScriptableWizard
     {
         if (Selection.activeGameObject)
         {
-            ModelExporter.ExportModel(Selection.activeGameObject, ExportPath);
+            ModelExporter.ExportModel(Selection.activeGameObject, ExportPath, colorSpace: TextureColorSpace);
             Process.Start(new ProcessStartInfo()
             {
                 FileName = ExportPath,

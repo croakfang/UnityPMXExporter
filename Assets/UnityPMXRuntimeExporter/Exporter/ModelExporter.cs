@@ -13,7 +13,7 @@ namespace UnityPMXExporter
     public class ModelExporter
     {
 
-        public static void ExportModel(GameObject target, string path, PMXModelConfig exportConfig = new PMXModelConfig())
+        public static void ExportModel(GameObject target, string path, PMXModelConfig exportConfig = new PMXModelConfig(), RenderTextureReadWrite colorSpace = RenderTextureReadWrite.Default)
         {
             
             if(string.IsNullOrEmpty(exportConfig.Name) && string.IsNullOrEmpty(exportConfig.NameEn))
@@ -21,7 +21,7 @@ namespace UnityPMXExporter
                 exportConfig = new PMXModelConfig(target);
             }
 
-            var textures = TextureExporter.ExportAllTexture(Path.GetDirectoryName(path), target.gameObject);
+            var textures = TextureExporter.ExportAllTexture(Path.GetDirectoryName(path), target.gameObject, colorSpace);
             var model = ReadPMXModelFromGameObject(target, textures, exportConfig);
 
             FileStream fileStream = new FileStream(path, FileMode.Create);
