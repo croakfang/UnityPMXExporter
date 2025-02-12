@@ -36,7 +36,7 @@ public class EditorPMXExporter : ScriptableWizard
         isValid = !(string.IsNullOrEmpty(ExportPath) || string.IsNullOrEmpty(Path.GetFileName(ExportPath)));
     }
 
-    [MenuItem("GameObject/Exprot PMX Model", true)]
+    [MenuItem("GameObject/Export PMX Model", true)]
     private static bool CheckObjectType()
     {
         Object selectedObject = Selection.activeObject;
@@ -47,9 +47,9 @@ public class EditorPMXExporter : ScriptableWizard
         return false;
     }
 
-    [MenuItem("GameObject/Exprot PMX Model")]
+    [MenuItem("GameObject/Export PMX Model")]
     static void CreateWindow()
     {
-        DisplayWizard("Exprot PMX Model", typeof(EditorPMXExporter), "Export");
+        DisplayWizard("Export PMX Model", typeof(EditorPMXExporter), "Export");
     }
 }
