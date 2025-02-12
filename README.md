@@ -19,11 +19,20 @@
 | RigidBody | x |
 | Joint | x |
 
+### Some vertex information will be recorded in the additional UVs of PMX
+| Unity | PMX |
+| ----- | ----- |
+| UV2 | Extra UV1 |
+| UV3 | Extra UV2 |
+| Vertex Color | Extra UV3 |
+
 # Usage
 - Import this plugin
 - For Editor：
   - Right click on the object on the hierarchy
-  - Exprot PMX Model ![image](https://github.com/croakfang/UnityPMXExporter/assets/32562737/cff4363b-3d32-4fb8-837c-81d6c1ab4ad2)
+  - Export PMX Model
+  - ![88c45375d85fe4a2e4c61c88500efa7c](https://github.com/user-attachments/assets/9ded1f65-a4ff-4bd4-a9dc-928145b40a99)
+
 
 - For Runtime：
   ```
