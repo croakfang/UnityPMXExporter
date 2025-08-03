@@ -20,8 +20,11 @@
 | Joint | x |
 
 ### Some vertex information will be recorded in the additional UVs of PMX
+**🚨Due to the difference between Unity's texture space and that of MMD, all UVs, except for vertex colors, have had their Y-coordinates flipped.**
+
 | Unity | PMX |
 | ----- | ----- |
+| UV | UV |
 | UV2 | Extra UV1 |
 | UV3 | Extra UV2 |
 | Vertex Color | Extra UV3 |
